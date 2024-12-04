@@ -1,0 +1,22 @@
+{
+  "name": "V.D. Autofiller",
+  "description": "Login Autofiller for Velog Dashboard",
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "icons": {
+    "16": "favicon.png",
+    "32": "favicon.png",
+    "64": "favicon.png"
+  },
+  "permissions": ["cookies", "activeTab"],
+  "host_permissions": ["https://velog.io/*", "http://localhost:5500/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
