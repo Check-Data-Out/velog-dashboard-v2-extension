@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div.UserProfile_bottom__FFbRH {
+  flex-direction: row-reverse !important;
+  justify-content: space-between;
+}
+
+div.UserProfile_bottomSection__ZnaeC {
+  margin-top: 0 !important;
+}
+
+div[_echarts_instance_] {
+  display: none !important;
+}

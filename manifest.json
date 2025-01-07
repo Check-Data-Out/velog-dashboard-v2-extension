@@ -9,14 +9,24 @@
     "64": "favicon.png"
   },
   "permissions": ["cookies", "activeTab"],
-  "host_permissions": ["https://velog.io/*", "http://localhost:5500/*"],
+  "host_permissions": ["https://velog.io/*", "http://localhost:3000/*"],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "./contents/background.js"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "matches": ["http://localhost:3000/*"],
+      "js": ["./contents/vd.js"]
+    },
+    {
+      "matches": ["https://velog.io/*"],
+      "js": ["./contents/velog.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["velog.css", "favicon.png"],
+      "matches": ["https://velog.io/*"]
     }
   ]
 }

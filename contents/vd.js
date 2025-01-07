@@ -5,11 +5,8 @@ chrome.runtime.onMessage.addListener(({ access, refresh }) => {
     if (accessInput && refreshInput) {
       accessInput.value = access;
       refreshInput.value = refresh;
-    }
-
-    const loginButton = document.querySelector("#login");
-    if (loginButton) {
-      loginButton.click();
+      accessInput.dispatchEvent(new Event("input", { bubbles: true }));
+      refreshInput.dispatchEvent(new Event("input", { bubbles: true }));
     }
   }
 });

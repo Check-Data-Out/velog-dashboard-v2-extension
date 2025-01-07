@@ -1,0 +1,102 @@
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.h-\[200px\] {
+  height: 200px;
+}
+
+.h-\[20px\] {
+  height: 20px;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.w-\[1440px\] {
+  width: 1440px;
+}
+
+.w-\[20px\] {
+  width: 20px;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.font-\[400\] {
+  font-weight: 400;
+}
+
+.text-\[var\(--text2\)\] {
+  color: var(--text2);
+}
+
+.\[display\:_flex_\!important\] {
+  display: flex !important;
+}
+
+div.UserProfile_bottom__FFbRH {
+  flex-direction: row-reverse !important;
+  justify-content: space-between;
+}
+
+div.UserProfile_bottomSection__ZnaeC {
+  margin-top: 0 !important;
+}
+
+div[_echarts_instance_] {
+  display: none !important;
+}
+
+.before\:font-\[700\]::before {
+  content: var(--tw-content);
+  font-weight: 700;
+}
+
+.before\:text-\[var\(--text1\)\]::before {
+  content: var(--tw-content);
+  color: var(--text1);
+}
+
+.before\:content-\[attr\(data-totalpost\)_\'_\'\]::before {
+  --tw-content: attr(data-totalpost) " ";
+  content: var(--tw-content);
+}
+
+@media (max-width: 1440px) {
+  .max-\[1440px\]\:w-full {
+    width: 100%;
+  }
+
+  .max-\[1440px\]\:pl-\[1rem\] {
+    padding-left: 1rem;
+  }
+
+  .max-\[1440px\]\:pr-\[1rem\] {
+    padding-right: 1rem;
+  }
+}
