@@ -10,16 +10,37 @@
   margin-right: auto;
 }
 
-.h-\[200px\] {
-  height: 200px;
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 .h-\[20px\] {
   height: 20px;
 }
 
+.h-\[auto_\!important\] {
+  height: auto !important;
+}
+
 .h-auto {
   height: auto;
+}
+
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.max-h-\[300px\] {
+  max-height: 300px;
+}
+
+.w-\[100\%_\!important\] {
+  width: 100% !important;
 }
 
 .w-\[1440px\] {
@@ -35,24 +56,64 @@
   width: fit-content;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .cursor-pointer {
   cursor: pointer;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .items-center {
   align-items: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-4 {
   gap: 1rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.bg-\[var\(--bg-element2\)\] {
+  background-color: var(--bg-element2);
+}
+
+.p-\[1\.5rem\] {
+  padding: 1.5rem;
+}
+
+.text-\[15px\] {
+  font-size: 15px;
 }
 
 .font-\[400\] {
   font-weight: 400;
 }
 
+.text-\[var\(--text1\)\] {
+  color: var(--text1);
+}
+
 .text-\[var\(--text2\)\] {
   color: var(--text2);
+}
+
+.no-underline {
+  text-decoration-line: none;
 }
 
 .\[display\:_flex_\!important\] {
@@ -72,7 +133,22 @@ div[_echarts_instance_] {
   display: none !important;
 }
 
+.before\:mr-1::before {
+  content: var(--tw-content);
+  margin-right: 0.25rem;
+}
+
+.before\:text-\[15px\]::before {
+  content: var(--tw-content);
+  font-size: 15px;
+}
+
 .before\:font-\[700\]::before {
+  content: var(--tw-content);
+  font-weight: 700;
+}
+
+.before\:font-bold::before {
   content: var(--tw-content);
   font-weight: 700;
 }
@@ -80,6 +156,17 @@ div[_echarts_instance_] {
 .before\:text-\[var\(--text1\)\]::before {
   content: var(--tw-content);
   color: var(--text1);
+}
+
+.before\:text-red-500::before {
+  content: var(--tw-content);
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+}
+
+.before\:content-\[\'\*\'\]::before {
+  --tw-content: "*";
+  content: var(--tw-content);
 }
 
 .before\:content-\[attr\(data-totalpost\)_\'_\'\]::before {
