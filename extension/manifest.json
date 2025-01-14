@@ -1,6 +1,6 @@
 {
-  "name": "V.D. Autofiller",
-  "description": "Login Autofiller for Velog Dashboard",
+  "name": "Velog Dashboard Extended",
+  "description": "Add convenient features to Velog and Velog Dashboard",
   "manifest_version": 3,
   "version": "1.0.0",
   "icons": {
@@ -9,13 +9,13 @@
     "64": "favicon.png"
   },
   "permissions": ["cookies", "activeTab"],
-  "host_permissions": ["https://velog.io/*", "http://localhost:3000/*"],
+  "host_permissions": ["https://velog.io/*", "https://velog-dashboard.kro.kr/*"],
   "background": {
     "service_worker": "./contents/background.js"
   },
   "content_scripts": [
     {
-      "matches": ["http://localhost:3000/*"],
+      "matches": ["https://velog-dashboard.kro.kr/*"],
       "js": ["./contents/vd.js"]
     },
     {
