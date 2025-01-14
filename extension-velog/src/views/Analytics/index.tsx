@@ -10,6 +10,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { postSummary } from "../../apis/post";
+import { useQuery } from "@tanstack/react-query";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -20,19 +22,40 @@ const defaultData = {
 
 const logo = chrome.runtime.getURL("favicon.png");
 
-export const Analytics = () => {
-  // const { data, isLoading, isError } = useQuery({
-  //   queryKey: ["profile"],
-  //   queryFn: async () => await profile({ uuid, access, refresh }),
-  // });
+interface IProp {
+  page: Record<number | string, string>;
+  access: string;
+  refresh: string;
+}
+
+const datasets = {
+  backgroundColor: "#ECECEC",
+  borderColor: "#96F2D7",
+};
+
+export const Analytics = ({ page, access, refresh }: IProp) => {
+  const { data } = useQuery({
+    queryKey: ["summary"],
+    queryFn: async () => await postSummary({ access, refresh, id: page[2] }),
+    select: ({ post }) => ({
+      labels: post.map((i) => i.date.split("T")[0]),
+      datasets: [
+        {
+          label: "Views",
+          data: post.map((i) => i[`dailyViewCount`]),
+          ...datasets,
+        },
+      ],
+    }),
+  });
 
   return (
-    <div className="ml-auto mr-auto w-[1440px] h-fit max-[1440px]:w-full max-[1440px]:pl-[1rem] max-[1440px]:pr-[1rem]">
+    <div className="ml-auto mr-auto w-[1440px] -mt-8 h-fit max-[1440px]:w-full max-[1440px]:pl-[1rem] max-[1440px]:pr-[1rem]">
       <div className="flex flex-col gap-4 w-full h-fit p-[1.5rem] rounded-lg bg-[var(--bg-element2)]">
         <div className="flex justify-between items-center w-full h-fit">
           <a
             href={import.meta.env.VITE_VELOG_DASHBOARD_URL}
-            className="flex gap-3 itmes-center no-underline"
+            className="flex gap-3 itmes-center no-underline shrink-0"
           >
             <img src={logo} className="w-[20px] h-auto" title="Velog Dashboard 제공 데이터" />
             <span className="text-[15px] text-[var(--text1)]">상세보기</span>
@@ -43,7 +66,7 @@ export const Analytics = () => {
           </span>
         </div>
         <Line
-          data={defaultData}
+          data={data || defaultData}
           options={{
             responsive: true,
             maintainAspectRatio: false,
