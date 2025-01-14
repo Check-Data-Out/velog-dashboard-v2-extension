@@ -18,7 +18,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
       case "velog.io":
         chrome.tabs.sendMessage(tabId, { page, access, refresh });
         break;
-      case "localhost:3000":
+      case "velog-dashboard.kro.kr":
         chrome.tabs.sendMessage(tabId, { access, refresh });
         break;
     }
