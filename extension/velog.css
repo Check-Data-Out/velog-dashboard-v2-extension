@@ -1,7 +1,3 @@
-[hidden]:where(:not([hidden="until-found"])) {
-  display: none;
-}
-
 .-mt-8 {
   margin-top: -2rem;
 }
@@ -129,12 +125,15 @@
 }
 
 div.UserProfile_bottom__FFbRH {
-  flex-direction: row-reverse !important;
-  justify-content: space-between;
+  gap: 12px;
 }
 
 div.UserProfile_bottomSection__ZnaeC {
   margin-top: 0 !important;
+}
+
+div.UserProfile_followInfo__6z4sT {
+  justify-content: space-between !important;
 }
 
 div[_echarts_instance_] {

@@ -11,9 +11,9 @@ document.getElementsByTagName("head")[0].appendChild(link);
 const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
 
 chrome.runtime.onMessage.addListener((props) => {
-  const status = document.querySelector("div.UserProfile_icons___mCRr");
+  const status = document.querySelector("div.UserProfile_followInfo__6z4sT") as HTMLElement;
 
-  if (props.page[1] === "post-stats") {
+  if (props.page[1] === "post-stats" && !document.querySelector(".chart")) {
     const root = document.querySelector("div#root")?.childNodes[1];
     const chart = document.createElement("div");
     chart.className = "chart";
@@ -25,13 +25,22 @@ chrome.runtime.onMessage.addListener((props) => {
         </QueryClientProvider>
       </div>
     );
-  } else if (status) {
-    createRoot(status!).render(
-      <div>
+  } else if (status && !status.querySelector(".velog-extension")) {
+    const item = document.createElement("div");
+    item.className = "velog-extension";
+    status.appendChild(item);
+    const followInfo = document.createElement("div");
+    document.querySelectorAll(".UserProfile_info__MFcK0").forEach((i) => {
+      followInfo.appendChild(i);
+    });
+    status.appendChild(followInfo);
+
+    createRoot(item).render(
+      <>
         <QueryClientProvider client={client}>
           <Profile {...props} />
         </QueryClientProvider>
-      </div>
+      </>
     );
   }
 });
